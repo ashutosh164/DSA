@@ -372,9 +372,9 @@ l.insert_head(4)
 # l.clear()
 # print(l)
 # l.pop()
-print(l)
+# print(l)
 # l.replace_max(16)
-print(l)
+# print(l)
 # print(l.search(3))
 
 '''
@@ -414,6 +414,85 @@ it with a given value , assume that the linked list populated with wholw numvers
 # l.insert(1)
 # print((l))
 # print(len(l))
+
+
+class LinkNode:
+    def __init__(self, val, next=None):
+        self.val = val
+        self.next = next
+
+    def __str__(self):
+        return str(self.val)
+
+
+head = LinkNode(1)
+a = LinkNode(2)
+b = LinkNode(3)
+c = LinkNode(4)
+head.next = a
+a.next = b
+b.next = c
+
+def display(head):
+    curr = head
+    while curr:
+        print(curr.val, end='')
+        if curr.next:
+            print('->', end='')
+        curr = curr.next
+    print()
+
+display(head)
+
+
+def max_num(head):
+    if not head:
+        print(float('-inf'))
+    curr = head.next
+    max = head.val
+    while curr:
+        if curr.val > max:
+            max = curr.val
+        curr = curr.next
+    print(max)
+
+max_num(head)
+
+print('============replace_max=============')
+def replace_max(head, val):
+    if not head:
+        print(float('-inf'))
+    curr = head
+    max_val = curr
+    while curr:
+        if curr.val > max_val.val:
+            max_val = curr
+        curr = curr.next
+    max_val.val = val
+
+replace_max(head, 80)
+
+display(head)
+
+print('==========sum of odd position==========')
+
+def sum_odd_node(head):
+    curr = head
+    counter = 0
+    result = 0
+    while curr:
+        if counter % 2 != 0:
+            result = result + curr.val
+        counter += 1
+        curr = curr.next
+    print(result)
+
+
+sum_odd_node(head)
+
+print('==========reverse ll containing int============')
+
+
 
 
 
