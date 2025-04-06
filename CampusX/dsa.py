@@ -427,7 +427,7 @@ class LinkNode:
 
 head = LinkNode(1)
 a = LinkNode(2)
-b = LinkNode(3)
+b = LinkNode(30)
 c = LinkNode(4)
 head.next = a
 a.next = b
@@ -503,8 +503,75 @@ def reverse(head):
     head = prev_node
     return head
 
+def reverse_linked_list(head):
+    prev = None
+    current = head
 
-display(reverse(head))
+    while current:
+        next_node = current.next
+        current.next = prev
+        prev = current
+        current = next_node
+
+    return prev
+
+b = reverse_linked_list(head)
+
+def max_n(head):
+    curr = head.next
+    max = head.val
+    while curr:
+        if curr.val > max:
+            max = curr.val
+        curr = curr.next
+    print(max)
+max_n(b)
+print('==========string ll ===========')
+'''
+given a linked list of ch. write a python fun toreturn a new string that is created by appending ala tha cha given in the ll as per the rls given bellow
+rule:
+1 . replace '*' or '/' by single space
+2. inn case of two consecutive occurrences of '*' of '/', replace those two occurrence by a single space and convert the next chara to upper case
+'''
+
+
+class StringLinkedList:
+
+    def __init__(self, val, next=None):
+        self.val = val
+        self.next = next
+
+    def __str__(self):
+        return str(self.val)
+
+    def insert_head(self, value):
+        new_node = Node(value)
+        new_node.next = self.val
+        self.val = new_node
+
+
+word_list = StringLinkedList('*')
+word_list.insert_head('T')
+word_list.insert_head('h')
+word_list.insert_head('*')
+word_list.insert_head('e')
+word_list.insert_head('/')
+word_list.insert_head('p')
+word_list.insert_head('*')
+word_list.insert_head('/')
+word_list.insert_head('o')
+word_list.insert_head('w')
+word_list.insert_head('*')
+word_list.insert_head('e')
+word_list.insert_head('/')
+word_list.insert_head('r')
+
+display(word_list)
+
+
+
+
+
 
 
 
