@@ -614,7 +614,6 @@ class StringLinkedList:
             curr = curr.next
 
 
-
 word_list = StringLinkedList()
 word_list.append('T')
 word_list.append('h')
@@ -630,7 +629,6 @@ word_list.append('/')
 word_list.append('m')
 word_list.append('a')
 word_list.append('n')
-
 
 word_list.change()
 print(word_list.traverse())
