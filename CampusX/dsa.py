@@ -347,8 +347,6 @@ class LinkedList:
             curr = curr.next
             pos += 1
 
-
-
     def replace_max(self, value):
         temp = self.head
         max = temp
@@ -357,8 +355,6 @@ class LinkedList:
                 max = temp
             temp = temp.next
         max.data = value
-
-
 
 
 l = LinkedList()
@@ -433,6 +429,7 @@ head.next = a
 a.next = b
 b.next = c
 
+
 def display(head):
     curr = head
     while curr:
@@ -441,6 +438,7 @@ def display(head):
             print('->', end='')
         curr = curr.next
     print()
+
 
 display(head)
 
@@ -456,9 +454,12 @@ def max_num(head):
         curr = curr.next
     print(max)
 
+
 max_num(head)
 
 print('============replace_max=============')
+
+
 def replace_max(head, val):
     if not head:
         print(float('-inf'))
@@ -470,11 +471,13 @@ def replace_max(head, val):
         curr = curr.next
     max_val.val = val
 
+
 replace_max(head, 80)
 
 display(head)
 
 print('==========sum of odd position==========')
+
 
 def sum_odd_node(head):
     curr = head
@@ -492,6 +495,7 @@ sum_odd_node(head)
 
 print('==========reverse ll containing int============')
 
+
 def reverse(head):
     prev_node = None
     curr_node = head
@@ -502,6 +506,7 @@ def reverse(head):
         curr_node = next_node
     head = prev_node
     return head
+
 
 def reverse_linked_list(head):
     prev = None
@@ -515,7 +520,9 @@ def reverse_linked_list(head):
 
     return prev
 
+
 b = reverse_linked_list(head)
+
 
 def max_n(head):
     curr = head.next
@@ -525,6 +532,8 @@ def max_n(head):
             max = curr.val
         curr = curr.next
     print(max)
+
+
 max_n(b)
 print('==========string ll ===========')
 '''
@@ -535,45 +544,80 @@ rule:
 '''
 
 
-class StringLinkedList:
-
-    def __init__(self, val, next=None):
-        self.val = val
+class StringNode:
+    def __init__(self, head, next=None):
+        self.head = head
         self.next = next
 
-    def __str__(self):
-        return str(self.val)
 
-    def insert_head(self, value):
-        new_node = Node(value)
-        new_node.next = self.val
-        self.val = new_node
-
-
-word_list = StringLinkedList('*')
-word_list.insert_head('T')
-word_list.insert_head('h')
-word_list.insert_head('*')
-word_list.insert_head('e')
-word_list.insert_head('/')
-word_list.insert_head('p')
-word_list.insert_head('*')
-word_list.insert_head('/')
-word_list.insert_head('o')
-word_list.insert_head('w')
-word_list.insert_head('*')
-word_list.insert_head('e')
-word_list.insert_head('/')
-word_list.insert_head('r')
-
-display(word_list)
-
-
-
+#
+# class StringLinkedList:
+#     def __init__(self):
+#         self.head = None
+#         self.n = 0
+#
+#     def insert_head(self, value):
+#         new_node = StringNode(value)
+#         if self.head == None:
+#             self.head = new_node
+#             self.n += 1
+#             return
+#         curr = self.head
+#         while curr.next != None:
+#             curr = curr.next
+#         curr.next = new_node
+#         self.n += 1
+#
+#     def traverse(self):
+#         curr = self.head
+#         data = ''
+#         while curr:
+#             data = data + curr.head
+#             curr = curr.next
+#         return data
+#
 
 
+class StringLinkedList:
+    def __init__(self):
+        self.head = None
+        self.n = 0
+
+    def append(self, value):
+        new_node = StringNode(value)
+        if self.head == None:
+            self.head = new_node
+            self.n += 1
+            return
+        curr = self.head
+        while curr.next != None:
+            curr = curr.next
+        curr.next = new_node
+        self.n += 1
+
+    def traverse(self):
+        curr = self.head
+        data = ''
+        while curr:
+            data = data + curr.head
+            curr = curr.next
+        return data
 
 
+word_list = StringLinkedList()
+word_list.append('T')
+word_list.append('h')
+word_list.append('*')
+word_list.append('e')
+word_list.append('/')
+word_list.append('p')
+word_list.append('*')
+word_list.append('/')
+word_list.append('o')
+word_list.append('w')
+word_list.append('*')
+word_list.append('e')
+word_list.append('/')
+word_list.append('r')
 
-
-
+print(word_list.traverse())
