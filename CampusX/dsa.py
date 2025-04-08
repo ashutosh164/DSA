@@ -603,23 +603,37 @@ class StringLinkedList:
             curr = curr.next
         return data
 
+    def change(self):
+        curr = self.head
+        while curr is not None:
+            if curr.head == '*' or curr.head == '/':
+                curr.head = ' '
+                if curr.next.head == '*' or curr.next.head == '/':
+                    curr.next.next.head = curr.next.next.head.upper()
+                    curr.next = curr.next.next
+            curr = curr.next
+
+
 
 word_list = StringLinkedList()
 word_list.append('T')
 word_list.append('h')
-word_list.append('*')
 word_list.append('e')
 word_list.append('/')
-word_list.append('p')
 word_list.append('*')
-word_list.append('/')
-word_list.append('o')
-word_list.append('w')
-word_list.append('*')
-word_list.append('e')
-word_list.append('/')
+word_list.append('i')
 word_list.append('r')
+word_list.append('o')
+word_list.append('n')
+word_list.append('/')
+word_list.append('/')
+word_list.append('m')
+word_list.append('a')
+word_list.append('n')
 
 
-
+word_list.change()
 print(word_list.traverse())
+
+
+
