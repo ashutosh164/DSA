@@ -620,4 +620,6 @@ word_list.append('e')
 word_list.append('/')
 word_list.append('r')
 
+
+
 print(word_list.traverse())
