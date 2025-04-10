@@ -386,29 +386,29 @@ it with a given value , assume that the linked list populated with wholw numvers
 #         self.next = None
 #
 #
-# class LinkedL:
-#     def __init__(self):
-#         self.head = None
-#         self.n = 0
-#
-#     def __str__(self):
-#
-#
-#     def __len__(self):
-#         return self.n
-#
-#     def insert(self, value):
-#         new_node = Node1(value)
-#         new_node.next = self.head
-#         self.head = new_node
-#         self.n += 1
+class LinkedL:
+    def __init__(self):
+        self.head = None
+        self.n = 0
+
+    def __str__(self):
+
+
+    def __len__(self):
+        return self.n
+
+    def insert(self, value):
+        new_node = Node1(value)
+        new_node.next = self.head
+        self.head = new_node
+        self.n += 1
 #
 #     def replace_max(self, value):
 #         pass
 
-# l = LinkedL()
-# l.insert(1)
-# print((l))
+l = LinkedL()
+l.insert(1)
+print((l))
 # print(len(l))
 
 
@@ -578,6 +578,8 @@ class StringNode:
 #
 
 
+
+
 class StringLinkedList:
     def __init__(self):
         self.head = None
@@ -629,6 +631,9 @@ word_list.append('/')
 word_list.append('m')
 word_list.append('a')
 word_list.append('n')
+
+
+
 
 word_list.change()
 print(word_list.traverse())
