@@ -380,35 +380,35 @@ it with a given value , assume that the linked list populated with wholw numvers
 '''
 
 
-# class Node1:
-#     def __init__(self, value):
-#         self.data = value
-#         self.next = None
+class Node1:
+    def __init__(self, value):
+        self.data = value
+        self.next = None
 #
 #
-class LinkedL:
-    def __init__(self):
-        self.head = None
-        self.n = 0
+# class LinkedL:
+#     def __init__(self):
+#         self.head = None
+#         self.n = 0
+#
+#     def __str__(self):
 
-    def __str__(self):
 
+    # def __len__(self):
+    #     return self.n
 
-    def __len__(self):
-        return self.n
-
-    def insert(self, value):
-        new_node = Node1(value)
-        new_node.next = self.head
-        self.head = new_node
-        self.n += 1
+    # def insert(self, value):
+    #     new_node = Node1(value)
+    #     new_node.next = self.head
+    #     self.head = new_node
+    #     self.n += 1
 #
 #     def replace_max(self, value):
 #         pass
 
-l = LinkedL()
-l.insert(1)
-print((l))
+# l = LinkedL()
+# l.insert(1)
+# print((l))
 # print(len(l))
 
 
@@ -632,11 +632,106 @@ word_list.append('m')
 word_list.append('a')
 word_list.append('n')
 
-
-
-
 word_list.change()
 print(word_list.traverse())
+
+'''
+ Move all zeroes to end of array using python 
+'''
+print('=============move all zero to end===============')
+def move_zero(nums):
+    non_zero = [x for x in nums if x != 0]
+    zeroes = [0] * (len(nums) - len(non_zero))
+    return non_zero + zeroes
+
+arr = [1,0,3,0,4]
+print(move_zero(arr))
+
+'''using 2 pointer '''
+
+def push_zero_to_end(arr):
+    left = 0
+    right = len(arr) - 1
+    while left <= right:
+        if arr[left] != 0:
+            left += 1
+        elif arr[right] == 0:
+            right -= 1
+        else:
+            for i in range(left, right):
+                if arr[i] == 0:
+                    arr[i], arr[i+1] = arr[i+1], arr[i]
+            right -= 1
+
+    return arr
+
+arr = [1, 9, 8, 4, 0, 0, 2, 7, 0, 6, 0, 9]
+print(push_zero_to_end(arr))
+# print(arr)
+
+'''
+Sort an array consisting only of 0s, 1s, and 2s without using sort functions give the solution using python
+'''
+print('===========sort an array=============')
+
+def sort_arr(arr):
+    low = 0
+    mid = 0
+    high = len(arr) - 1
+    while mid <= high:
+        if arr[mid] == 0:
+            arr[low], arr[mid] = arr[mid], arr[low]
+            low += 1
+            mid += 1
+        elif arr[mid] == 1:
+            mid += 1
+        else:
+            arr[mid], arr[high] = arr[high], arr[mid]
+            high -= 1
+    return arr
+
+arr = [1,2,0,1,0,2,1]
+print(sort_arr(arr))
+
+print('=========even num sorting algo===========')
+
+def even_sort(arr):
+    left = 0
+    right = len(arr) - 1
+    while left < right:
+        if arr[left] % 2 == 0:
+            left += 1
+        elif arr[right] % 2 == 1:
+            right -= 1
+        else:
+            arr[left], arr[right] = arr[right], arr[left]
+            right -= 1
+            left += 1
+    return arr
+
+arr = [2,3,5,6,7,8]
+print(even_sort(arr))
+
+print('========Move all vowels (a, e, i, o, u) to the left and all other characters to the righ===========')
+
+def move_vowels_left(arr):
+    vowels = {'a','e','i','o','u'}
+    left = 0
+    right = len(arr) - 1
+    while left < right:
+        if arr[left].lower() in vowels:
+            left += 1
+        elif arr[right].lower() not in vowels:
+            right -= 1
+
+        else:
+            arr[left], arr[right] = arr[right], arr[left]
+            left += 1
+            right -= 1
+    return arr
+
+arr = ['b', 'a', 'x', 'e', 'u', 'm', 'i']
+print(move_vowels_left(arr))
 
 
 
