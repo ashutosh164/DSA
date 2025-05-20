@@ -733,5 +733,171 @@ def move_vowels_left(arr):
 arr = ['b', 'a', 'x', 'e', 'u', 'm', 'i']
 print(move_vowels_left(arr))
 
+class LinkedList:
+    def __init__(self, val, next=None):
+        self.val = val
+        self.next = next
+
+    def __str__(self):
+        return str(self.val)
+
+head = LinkedList(1)
+a = LinkedList(2)
+b = LinkedList(3)
+c = LinkedList(4)
+head.next = a
+a.next = b
+b.next = c
+
+def display(head):
+    curr = head
+    while curr:
+        print(curr, end='')
+        if curr.next:
+            print('->', end='')
+        curr = curr.next
+    print()
+
+
+display(head)
+
+
+def max_fun(head):
+    if not head:
+        print(float('-inf'))
+    curr = head.next
+    max = head.val
+    while curr:
+        if curr.val > max:
+            max = curr.val
+        curr = curr.next
+    print(max)
+
+
+# max_fun(head)
+print('==========reverse ll===========')
+
+def reverse(head):
+    curr = head
+    prev = None
+    while curr:
+        next = curr.next
+        curr.next = prev
+        prev = curr
+        curr = next
+    head = prev
+    return head
+
+
+reverse_ll = reverse(head)
+display(reverse_ll)
+
+
+print('=============Problem: Remove duplicates in-place from a sorted array.===')
+
+def remove_duplicate(arr):
+    if not arr:
+        return 0
+
+    i = 0
+    for j in range(1, len(arr)):
+        if arr[j] != arr[i]:
+            i += 1
+            arr[i] = arr[j]
+    return i + 1
+
+nums = [0,0,1,1,1,2,2,3,3,4]
+a = remove_duplicate(nums)
+print(a)
+print(nums[:a])
+
+arr = [3, 6, 2, 8, 4, 8, 9, 6, 1, 9, 0]
+print('=========quick short============')
+
+nums = [3, 6, 2, 8, 4, 8, 9, 6, 1, 9, 0]
+
+# def quick_sort(arr, low, high):
+#     if low < high:
+#         pivot_index = partition(arr, low, high)
+#         quick_sort(arr, low, pivot_index - 1)
+#         quick_sort(arr, pivot_index + 1, high)
+#
+# def partition(arr, low, high):
+#     pivot = arr[high]  # choose the last element as pivot
+#     i = low - 1         # pointer for the smaller element
+#
+#     for j in range(low, high):
+#         if arr[j] <= pivot:
+#             i += 1
+#             arr[i], arr[j] = arr[j], arr[i]  # swap
+#     arr[i + 1], arr[high] = arr[high], arr[i + 1]  # place pivot in correct position
+#     return i + 1
+
+# Sort the list
+# quick_sort(nums, 0, len(nums) - 1)
+# print(nums)
+
+
+def partition(arr, low , high):
+    pivot = arr[high]
+    i = low - 1
+    for j in range(low, high):
+        if arr[j] <= pivot:
+            i += 1
+            arr[i], arr[j] = arr[j], arr[i]
+    arr[i+1], arr[high] = arr[high], arr[i+1]
+    return i + 1
+
+def quick_sort(arr, low=0, high=None):
+    if high is None:
+        high = len(arr) - 1
+    if low < high:
+        pivot_index = partition(arr, low, high)
+        quick_sort(arr, low, pivot_index - 1)
+        quick_sort(arr, pivot_index + 1, high)
+
+
+print('before sort=====>>>',nums)
+quick_sort(nums)
+print('after sort====>>>',nums)
+
+print('==========binary search==========')
+
+def sorted(arr):
+    i = 0
+    for j in range(1, len(arr)):
+        if arr[j] != arr[i]:
+            i += 1
+            arr[i] = arr[j]
+    return i + 1
+
+a = sorted(nums)
+
+
+
+
+
+def binary_search(arr, target):
+    low = 0
+    high = len(arr) - 1
+    while low <= high:
+        mid = (low + high) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+    return -1
+
+
+print(nums[:a])
+print(binary_search(nums[:a], 9))
+
+
+
+
+
+
 
 
