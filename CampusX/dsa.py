@@ -895,6 +895,23 @@ print(nums[:a])
 print(binary_search(nums[:a], 9))
 
 
+print('========return the number where the some is 12===================')
+
+def return_number(arr, target):
+    low = 0
+    high = len(arr) - 1
+    while low < target:
+        val = arr[low] + arr[high]
+        if val == target:
+            return arr[low], arr[high]
+        elif val < target:
+            low += 1
+        else:
+            high -= 1
+    print()
+print(return_number([2,1,5,7,9],12))
+
+
 
 
 
