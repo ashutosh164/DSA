@@ -874,9 +874,6 @@ def sorted(arr):
 a = sorted(nums)
 
 
-
-
-
 def binary_search(arr, target):
     low = 0
     high = len(arr) - 1
@@ -910,6 +907,12 @@ def return_number(arr, target):
             high -= 1
     print()
 print(return_number([2,1,5,7,9],12))
+
+arr = [3, 6, 2, 8, 4, 8, 9, 6, 1, 9, 0]
+
+# def partitions(arr, low, high):
+#     low = 0
+#     i =
 
 
 
