@@ -89,7 +89,54 @@ def text_editor(text, pattern):
 print(text_editor('ashutosh', 'uurruuu'))
 print('======celebrity problem==============')
 
+l = [
+    [0,0,1,1],
+    [0,0,1,0],
+    [0,0,1,0],
+    [0,0,0,0]
+]
 
+# def find_the_celeb(l):
+#     s = Stack()
+#     for i in range(len(l)):
+#         s.push(i)
+#     while len(s) >= 2:
+#         i = s.pop()
+#         j = s.pop()
+#         if l[i][j] == 0:
+#             # j is not celeb
+#             s.push(i)
+#         else:
+#             # i is not a celeb
+#             s.push(j)
+#     celeb = s.pop()
+#     for i in range(len(l)):
+#         if i != celeb:
+#             if l[i][celeb] == 0 or l[celeb][i] == 1:
+#                 print('no one is celebrity')
+#                 return
+#     print('the celebrity is ', celeb)
+
+
+matrix = [
+    [0, 1, 1],
+    [0, 0, 1],
+    [0, 0, 0]
+]
+
+def find_the_celeb(l):
+    candidate = 0
+    for i in range(1, len(l)):
+        if l[candidate][i] == 1:
+            candidate = i #candidate can't be celeb
+    for i in range(len(l)):
+        if i != candidate:
+            if l[candidate][i] == 1 or l[i][candidate] == 0:
+                print('no one is celebrity')
+                return
+    print('the celebrity is ', candidate)
+
+find_the_celeb(matrix)
 
 
 
