@@ -136,7 +136,33 @@ def find_the_celeb(l):
                 return
     print('the celebrity is ', candidate)
 
+
 find_the_celeb(matrix)
+
+
+print('=============stack============')
+
+
+class Stack:
+    def __init__(self, size):
+        self.size = size
+        self.stack = [None] * self.size
+        self.top =- 1
+
+    def push(self, value):
+        if self.top == self.size - 1:
+            return 'overflow'
+        else:
+            self.top += 1
+            self.stack[self.top] = value
+
+
+s = Stack(3)
+
+print(s.stack)
+
+
+
 
 
 
