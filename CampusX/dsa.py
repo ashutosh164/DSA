@@ -914,6 +914,27 @@ arr = [3, 6, 2, 8, 4, 8, 9, 6, 1, 9, 0]
 #     low = 0
 #     i =
 
+print('========two sum==========')
+def two_sum(arr, target):
+    low = 0
+    high = len(arr) - 1
+    while low < high:
+        new_val = arr[low] + arr[high]
+        if new_val == target:
+            # print(arr[low], arr[high])
+            return arr[low], arr[high]
+        elif new_val < target:
+            low += 1
+        else:
+            high -= 1
+
+    print()
+
+print(two_sum([5,1,2,7,9], 12))
+
+
+
+
 
 
 

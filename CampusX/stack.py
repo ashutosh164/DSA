@@ -147,7 +147,7 @@ class Stack:
     def __init__(self, size):
         self.size = size
         self.stack = [None] * self.size
-        self.top =- 1
+        self.top = -1
 
     def push(self, value):
         if self.top == self.size - 1:
@@ -158,8 +158,11 @@ class Stack:
 
 
 s = Stack(3)
-
 print(s.stack)
+s.push(2)
+print(s.stack)
+
+
 
 
 
