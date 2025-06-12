@@ -146,7 +146,7 @@ print('=============stack============')
 class Stack:
     def __init__(self, size):
         self.size = size
-        self.stack = [None] * self.size
+        self.__stack = [None] * self.size
         self.top = -1
 
     def push(self, value):
@@ -154,18 +154,45 @@ class Stack:
             return 'overflow'
         else:
             self.top += 1
-            self.stack[self.top] = value
+            self.__stack[self.top] = value
 
+    def pop(self):
+        if self.top == -1:
+            return 'empty'
+        else:
+            data = self.__stack[self.top]
+            self.top -= 1
+            print(data)
+
+    def traverse(self):
+        for i in range(self.top + 1):
+            print(self.__stack[i], end=' ')
 
 s = Stack(3)
-print(s.stack)
+# print(s.stack)
 s.push(2)
-print(s.stack)
+s.push(3)
+s.push(4)
+# s.pop()
+s.pop()
+# s.pop()
+# print(s.stack)
+s.traverse()
+
+print('===========balance paranthesis problem==========')
 
 
+def is_balance(s):
+    stack = []
+    bracket_map = {')': '(', '}': '{', ']': '['}
+    for i in s:
+        if i in bracket_map.values():
+            stack.append(i)
+        elif i in bracket_map:
+            if not stack or stack.pop() != bracket_map[i]:
+                return False
+        else:
+            return False
+    return not stack
 
-
-
-
-
-
+print(is_balance('({[))}{)}'))
