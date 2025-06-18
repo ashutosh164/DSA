@@ -55,5 +55,33 @@ def search(head, val):
 
 
 print(search(node, 5))
-# class DoubleLinkedList:
+
+print('======double linkedlist===========')
+
+class DoubleLinkedList:
+    def __init__(self, val, next=None, pre=None):
+        self.val = val
+        self.next = next
+        self.pre = pre
+
+    def __str__(self):
+        return str(self.val)
+
+head = tail = DoubleLinkedList(1)
+
+print('=========traverse double linkedlist=========')
+
+def traverse(head):
+    curr = head
+    element = []
+    while curr:
+        element.append(str(curr.val))
+        curr = curr.next
+    print('<->'.join(element))
+
+traverse(head)
+
+
+
+
 
