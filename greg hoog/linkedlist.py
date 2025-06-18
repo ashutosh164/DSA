@@ -43,4 +43,17 @@ def display(node):
 
 display(node)
 
+print('=====search===========')
+
+def search(head, val):
+    curr = head
+    while curr:
+        if val == curr.val:
+            return True
+        curr = curr.next
+    return False
+
+
+print(search(node, 5))
+# class DoubleLinkedList:
 
