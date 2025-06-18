@@ -81,6 +81,27 @@ def traverse(head):
 
 traverse(head)
 
+print('=======insert at beginning ===========')
+
+def insert_at_beginning(head, tail, val):
+    new_node = DoubleLinkedList(val, next=head)
+    head.prev = new_node
+    return new_node, tail
+
+head, tail = insert_at_beginning(head, tail, 3)
+traverse(head)
+
+
+print('=======insert at tail===========')
+
+def insert_at_end(head, tail, val):
+    new_node = DoubleLinkedList(val, pre=tail)
+    tail.next = new_node
+    return head, new_node
+head, tail = insert_at_end(head, tail,5)
+traverse(head)
+
+
 
 
 
