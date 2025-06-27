@@ -873,7 +873,6 @@ def sorted(arr):
 
 a = sorted(nums)
 
-
 def binary_search(arr, target):
     low = 0
     high = len(arr) - 1
