@@ -49,18 +49,33 @@ def fun2(arr, target):
             return [num, val]
         set[val] = item
 print(fun2(arr, target))
-nums = [3, 6, 2, 8, 4, 8, 9, 6, 1, 9, 0]
+b = [3, 6, 2, 8, 4, 8, 9, 6, 1, 9, 0,4,2,6,7,8,]
 
-def sotred(arr):
+def remove_dup(arr):
+    if not arr:
+        return 0
     i = 0
     for j in range(1, len(arr)):
         if arr[j] != arr[i]:
             i += 1
             arr[i] = arr[j]
     return i + 1
-a =  sotred(nums)
-print(nums[:a])
 
+# a = remove_dup(arr)
+#
+# print(b[:a])
+print('=======majority element=======')
+def majority_element(nums):
+    count = 0
+    candidate = None
+    for num in nums:
+        if count == 0:
+            candidate = num
+        count += (1 if num == candidate else -1)
+    return candidate
+
+print(b)
+print(majority_element([2,2,1,1,1,2,2,4,5,6,7,8,8,8,8,8,8]))
 
 
 
