@@ -1,3 +1,5 @@
+from enum import nonmember
+
 print('==========quick short=============')
 def partition(arr, low, high):
     pivote = arr[high]
@@ -76,9 +78,120 @@ def majority_element(nums):
 
 print(b)
 print(majority_element([2,2,1,1,1,2,2,4,5,6,7,8,8,8,8,8,8]))
+print('======single linkedlist===========')
+
+class Linkedlist:
+    def __init__(self, head, next=None):
+        self.head = head
+        self.next = next
+    def __str__(self):
+        return str(self.head)
+
+head = Linkedlist(1)
+a = Linkedlist(2)
+b = Linkedlist(3)
+c = Linkedlist(4)
+
+head.next = a
+a.next = b
+b.next = c
+
+print(head)
 
 
+def traverse(head):
+    curr = head
+    while curr:
+        print(curr.head, end='')
+        if curr.next:
+            print('->', end='')
+        curr = curr.next
+    print()
+print('=====traverse signgle linked node=========')
+traverse(head)
+print('=====reverse ll=============')
 
+def reverse(head):
+    prev = None
+    curr = head
+    while curr:
+        next_node = curr.next
+        curr.next = prev
+        prev = curr
+        curr = next_node
+
+    return prev
+rr = reverse(head)
+print(traverse(rr))
+print('======double linked list=========')
+
+class DoubleLinkedList:
+    def __init__(self, head, next=None, prev=None):
+        self.head = head
+        self.next = next
+        self.prev = prev
+
+    def __str__(self):
+        return str(self.head)
+
+head  = tail = DoubleLinkedList(1)
+
+def display(head):
+    curr = head
+    while curr:
+        print(curr.head, end='')
+        if curr.next:
+            print('<->', end='')
+        curr = curr.next
+
+    print()
+display(head)
+
+print('=====double ll insert at beginning=========')
+
+def insert_at_begin(head, tail, val):
+    new_node = DoubleLinkedList(val, next=head)
+    head.next = new_node
+    return new_node, tail
+head, tail = insert_at_begin(head, tail, 2)
+# display(head)
+
+def reverse_str(text):
+    s = list(text)
+    left = 0
+    right = len(s) - 1
+    while left < right:
+        s[left], s[right] = s[right], s[left]
+        left += 1
+        right -= 1
+    return ''.join(s)
+
+print(reverse_str('ashutosh pradhan'))
+
+print('=======set 0 to end of the list=========')
+
+def set_zero_to_end(arr):
+    count = 0
+    for i in range(len(arr)):
+        if arr[i] != 0:
+            arr[i], arr[count] = arr[count], arr[i]
+            count += 1
+arr = [0,3,4,0,2,0,5,0]
+print(set_zero_to_end(arr))
+print(arr)
+print('============fibonancy number==========')
+def fib(n):
+    if n == 0:
+        return 0
+    if n == 1:
+        return 1
+
+    a, b = 0,1
+    for _ in range(2, n+1):
+        a,b = b , a+b
+    return b
+
+print(fib(10))
 
 
 

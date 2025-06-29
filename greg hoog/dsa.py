@@ -68,7 +68,6 @@ def display(head):
         if curr.next:
             print('<->', end='')
         curr = curr.next
-
     print()
 
 
