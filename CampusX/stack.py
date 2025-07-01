@@ -196,5 +196,27 @@ def is_balance(s):
     return not stack
 
 print(is_balance('({[))}{)}'))
+print('============== array implement in stack===========')
+
+
+class Stack:
+    def __init__(self, size):
+        self.size = size
+        self.stack = [None] * self.size
+        self.top = -1
+
+    def push(self, val):
+        if self.top == self.size - 1:
+            return 'overflow'
+        else:
+            self.top += 1
+            self.stack[self.top] = val
+
+
+s = Stack(3)
+print(s.stack)
+s.push(4)
+print(s.stack)
+
 
 
