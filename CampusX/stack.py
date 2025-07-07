@@ -218,5 +218,36 @@ print(s.stack)
 s.push(4)
 print(s.stack)
 
+print('===========flatend the list========')
+
+arr = [5, 2, [9, 4, [1, 6, [7], 8], 3], 0]
+
+def flatten_list(arr):
+    results = []
+    stack = [arr]
+    while stack:
+        curr = stack.pop()
+        if isinstance(curr, list):
+            stack.extend(reversed(curr))
+        else:
+            results.append(curr)
+    return results
+
+print(flatten_list(arr))
+
+'''using generator for Very memory efficient'''
+
+def flatten_generator(arr):
+    stack = [arr]
+    while stack:
+        curr = stack.pop()
+        if isinstance(curr, list):
+            stack.extend(reversed(curr))
+        else:
+            yield curr
+
+
+for item in flatten_generator(arr):
+    print(item, end=' ')
 
 
