@@ -30,10 +30,46 @@ d['jyoti'] = 4
 if 'jilu' in d:
     print(True)
 
+for key, val in d.items():
+    print(key,val)
 
 
+from collections import defaultdict
+default = defaultdict(list)
 
+default[2]
 
+print(default)
+
+from collections import Counter
+string = 'aaassssshhhhhhhhuuuuuutttttttt'
+
+print(string)
+print(Counter(string))
+'''
+return character with max repeate
+'''
+
+def char_count(string):
+    char = {}
+    for i in string:
+        if i in char:
+            char[i] += 1
+        else:
+            char[i] = 1
+
+    chr_freq = 0
+    max_char = []
+    for chr, val in char.items():
+        if val > chr_freq:
+            max_char = [chr]
+            chr_freq = val
+        elif val == chr_freq:
+            max_char.append(chr)
+    print(f'char with max freq {chr_freq}:{max_char}')
+    return char
+
+print(char_count(string))
 
 
 
