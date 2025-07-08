@@ -251,3 +251,57 @@ for item in flatten_generator(arr):
     print(item, end=' ')
 
 
+print('=======fltten a linkedlist========')
+
+
+class SingleNode:
+    def __init__(self, val):
+        self.val = val
+        self.next = None
+        self.child = None
+
+
+head = SingleNode(1)
+head.next = SingleNode(2)
+head.next.next = SingleNode(3)
+head.next.next.child = SingleNode(7)
+head.next.next.child.next = SingleNode(8)
+head.next.next.child.next.child = SingleNode(12)
+head.next.next.child.next.next = SingleNode(9)
+
+
+def flatten(head):
+    if not head:
+        return head
+    stack = []
+    curr = head
+
+    while curr:
+        if curr.child:
+            if curr.next:
+                stack.append(curr.next)
+            curr.next = curr.child
+            curr.child = None
+        if not curr.next and stack:
+            curr.next = stack.pop()
+        curr = curr.next
+    return head
+
+
+def traverse(head):
+    while head:
+        print(head.val, end='')
+        head = head.next
+
+flattened = flatten(head)
+print(traverse(flattened))
+
+
+
+
+
+
+
+
+
+
