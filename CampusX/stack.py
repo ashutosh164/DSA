@@ -290,11 +290,13 @@ def flatten(head):
 
 def traverse(head):
     while head:
-        print(head.val, end='')
+        print(head.val, end='->')
         head = head.next
 
 flattened = flatten(head)
 print(traverse(flattened))
+
+
 
 
 

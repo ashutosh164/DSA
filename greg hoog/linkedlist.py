@@ -144,5 +144,20 @@ def merge_two_sort_ll(list1, list2):
     curr.next = list1 if list1 else list2
     return dummy_ll.next
 
+print('===== maxSubArray ========')
+
+
+class Solution:
+    def maxSubArray(self, nums):
+        cur_sum = 0
+        max_sum = float('-inf')
+        n = len(nums)
+        for i in range(n):
+            cur_sum += nums[i]
+            max_sum = max(max_sum, cur_sum)
+            if cur_sum < 0:
+                cur_sum =0
+        return max_sum
+
 
 
