@@ -52,10 +52,37 @@ def fib(n):
     return None
 
 
-for i in range(1,100):
-    print(i, ":", fib(i))
+# for i in range(1,100):
+#     print(i, ":", fib(i))
+
+# Linked list is a recursion
+
+class SingleNode:
+    def __init__(self,val):
+        self.val = val
+        self.next = None
+    def __str__(self):
+        return str(self.val)
+
+head = SingleNode(1)
+a = SingleNode(2)
+b = SingleNode(3)
+c = SingleNode(4)
+
+head.next = a
+a.next = b
+b.next = c
 
 
+# print(head)
+# time o(n), space o(n)
+def reverse(head):
+    if not head:
+        return
+    reverse(head.next)
+    print(head)
+
+reverse(head)
 
 
 
