@@ -74,6 +74,16 @@ a.next = b
 b.next = c
 
 
+def display(head):
+    curr = head
+    while curr:
+        print(curr.val, end='')
+        if curr.next:
+            print('->', end='')
+        curr = curr.next
+    print()
+
+display(head)
 # print(head)
 # time o(n), space o(n)
 def reverse(head):
@@ -82,6 +92,7 @@ def reverse(head):
     reverse(head.next)
     print(head)
 
+print('=========after reversed==========')
 reverse(head)
 
 
