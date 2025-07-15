@@ -192,8 +192,19 @@ def fib(n):
     return b
 
 print(fib(10))
+print('===decorator=====')
 
+def log_dec(func):
+    def wrapper(*args, **kwargs):
+        print('function called:', func.__name__)
+        return func(*args, **kwargs)
+    return wrapper
 
+@log_dec
+def say_hlo():
+    print('hello...')
+
+say_hlo()
 
 
 
