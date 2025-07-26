@@ -1,3 +1,6 @@
+from numpy.ma.core import count
+
+
 class SingleNode:
     def __init__(self, head):
         self.head = head
@@ -56,6 +59,38 @@ def remove_tail(head):
 traverse(head)
 t = remove_tail(head)
 traverse(t)
+
+print('==========delete the kth  node==========')
+
+
+def remove_kth_node(head, k):
+    if head is None or k < 1:
+        return head
+    if k == 1:
+        temp = head
+        head = head.next
+        del temp
+        return head
+    count = 0
+    temp = head
+    prev = None
+    while temp:
+        count += 1
+        if count == k:
+            if prev:
+                prev.next = temp.next
+            del temp
+            return head
+        prev = temp
+        temp = temp.next
+    return head
+
+traverse(head)
+remove_kth_node(head, 2)
+traverse(head)
+
+
+
 
 
 
