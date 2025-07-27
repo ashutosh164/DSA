@@ -77,8 +77,7 @@ def remove_kth_node(head, k):
     while temp:
         count += 1
         if count == k:
-            if prev:
-                prev.next = temp.next
+            prev.next = temp.next
             del temp
             return head
         prev = temp
@@ -88,6 +87,27 @@ def remove_kth_node(head, k):
 traverse(head)
 remove_kth_node(head, 2)
 traverse(head)
+print('==========insert at tail==========')
+
+def insert_at_tail(head, val):
+    temp = head
+    while temp.next is not None:
+        temp = temp.next
+    temp.next = SingleNode(4)
+    return head
+
+traverse(head)
+insert_at_tail(head, 4)
+traverse(head)
+
+
+
+
+
+
+
+
+
 
 
 
