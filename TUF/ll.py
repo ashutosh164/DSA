@@ -152,6 +152,30 @@ traverse(head)
 insert_nth_element(head, 100, 3)
 traverse(head)
 
+print('======insert before value==========')
+def insert_before_value(head, el, n):
+    if head is None:
+        return None
+    if head.head == n:
+        new_node = SingleNode(el)
+        new_node.next = head
+        return new_node
+
+    temp = head
+    while temp.next and temp.next.head != n:
+        temp = temp.next
+
+    if temp.next is None:
+        return head
+
+    new_node = SingleNode(el)
+    new_node.next = temp.next
+    temp.next = new_node
+    return head
+
+traverse(head)
+insert_before_value(head,200,100)
+traverse(head)
 
 
 
