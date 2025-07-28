@@ -91,7 +91,7 @@ print('==========insert at tail==========')
 
 def insert_at_tail(head, val):
     temp = head
-    while temp.next is not None:
+    while temp.next:
         temp = temp.next
     temp.next = SingleNode(4)
     return head
@@ -99,6 +99,62 @@ def insert_at_tail(head, val):
 traverse(head)
 insert_at_tail(head, 4)
 traverse(head)
+print('===========inserting at kth element=========')
+
+# def inertat_nth_element(head, val):
+#     if head is None:
+#         if val == 1:
+#             head = SingleNode(val)
+#             return head
+#         else:
+#             return None
+#     if val == 1:
+#         head = SingleNode(val)
+#         return head
+#
+#     count , temp = 0, head
+#     while temp:
+#         count += 1
+#         if count == val - 1:
+#             new = SingleNode(val)
+#             new.next = temp.next
+#             temp.next = new
+#             break
+#     return head
+
+
+def insert_nth_element(head, el, n):
+    if head is None:
+        if n == 1:
+            return SingleNode(el)
+        else:
+            return None
+    if n == 1:
+        new_node = SingleNode(el)
+        new_node.next = head
+        return new_node
+
+    count, temp = 1, head
+    while temp and count < n - 1:
+        count += 1
+        temp = temp.next
+
+    if temp is None:
+        return head
+
+    new_node = SingleNode(el)
+    new_node.next = temp.next
+    temp.next = new_node
+    return head
+
+
+traverse(head)
+insert_nth_element(head, 100, 3)
+traverse(head)
+
+
+
+
 
 
 
