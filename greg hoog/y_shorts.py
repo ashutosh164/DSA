@@ -50,5 +50,21 @@ def majority_element(arr):
 
 print(majority_element([1,1,1,2,3,4,4,4,4]))
 
+print('==========longest common ==================')
+
+def longest_common_prefix(arr):
+    n = len(arr)
+    i = 0
+    min_length = float('inf')
+    for s in arr:
+        if len(n) < min_length:
+            min_length = len(n)
+
+    while i < min_length:
+        for s in arr:
+            if s[i] != arr[0][i]:
+                return s[:i]
+        i += 1
+    return arr[0][:i]
 
 
