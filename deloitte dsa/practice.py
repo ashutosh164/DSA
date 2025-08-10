@@ -30,13 +30,33 @@ def isAnagram(a, b):
         count[ch] -= 1
         if count[ch] == 0:
             del count[ch]
+
     return len(count) == 0
 
 print(isAnagram('listen', 'silent'))
 print(isAnagram('rat', 'cat'))
 
 
+def isPalandrom(arr):
+    l = 0
+    r = len(arr) - 1
 
+    while l <= r:
+        # if arr[l] == arr[r]:
+        #
+        #     l += 1
+        #     r -= 1
+        while l < r and not arr[l].isalnum():
+            l += 1
+        while l < r and not arr[r].isalnum():
+            l -= 1
+        if arr[l].lower() != arr[r].lower():
+            return False
+        l += 1
+        r -= 1
+    return True
+
+print(isPalandrom("A man, a plan, a canal: Panama"))
 
 
 
