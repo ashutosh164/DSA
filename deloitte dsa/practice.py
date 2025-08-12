@@ -56,7 +56,31 @@ def isPalandrom(arr):
         r -= 1
     return True
 
-print(isPalandrom("A man, a plan, a canal: Panama"))
+# print('palandrom===>>',isPalandrom("A man, a plan, a canal: Panama"))
+
+
+def func(arr):
+    l = 0
+    r = len(arr) - 1
+
+    while l < r:
+        while l < r and not arr[l].isalnum():
+            l += 1
+        while l < r and not arr[r].isalnum():
+            r -= 1
+
+        if arr[l].lower() != arr[r].lower():
+            return False
+        l += 1
+        r -= 1
+    return True
+
+print('func =====>>>>>>',func('racecar'))
+
+
+
+
+
 
 
 
