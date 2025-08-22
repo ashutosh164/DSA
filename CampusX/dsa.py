@@ -522,8 +522,10 @@ def reverse_linked_list(head):
 
 
 b = reverse_linked_list(head)
+print(b)
 
 
+print('====max number==========')
 def max_n(head):
     curr = head.next
     max = head.val

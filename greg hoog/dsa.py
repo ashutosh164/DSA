@@ -28,11 +28,27 @@ def traverse(head):
             print('->', end='')
         curr = curr.next
     print()
-
+print('=========traverse ll============')
 traverse(head)
+print('=========== reverse ll===========')
+
+def reverse(head):
+    prev = None
+    temp = head
+    while temp:
+        next_node = temp.next
+        temp.next = prev
+        prev = temp
+        temp = next_node
+    return prev
+a = reverse(head)
+traverse(a)
+
+
+
 
 # serach for a value
-
+print('====== search=======')
 
 def search(head, val):
     curr = head
