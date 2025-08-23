@@ -6,6 +6,7 @@ def two_sum(nums, target):
         if complement in hashmap:
             return [hashmap[complement], i]
         hashmap[num] = i
+print('========two sum========')
 
 # ✅ Majority Element (Leetcode 169)
 def majority_element(nums):
