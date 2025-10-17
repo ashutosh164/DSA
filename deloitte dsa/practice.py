@@ -77,6 +77,37 @@ def func(arr):
 
 print('func =====>>>>>>',func('racecar'))
 
+print('=======find duplicate======')
+
+def find_duplicate(arr):
+    seen = set()
+    duplicate = []
+    for num in arr:
+        if num in seen:
+            duplicate.append(num)
+        else:
+            seen.add(num)
+    return duplicate
+
+print(find_duplicate([4,3,4,5,6,7,7,9,9]))
+
+def two_sum(arr, target):
+    left = 0
+    right = len(arr) - 1
+    while left < right:
+        s = arr[left] + arr[right]
+        if s == target:
+            return [arr[left], arr[right]]
+        elif s < target:
+            left += 1
+        else:
+            right -= 1
+print(two_sum([2,7,11,15],9))
+
+a = [4,3,4,5,6,7,7,9,9]
+b = set(a)
+print(b)
+
 
 
 
