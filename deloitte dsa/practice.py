@@ -109,11 +109,39 @@ b = set(a)
 print(b)
 
 
+print('=====Group Anagrams=========')
+words = ["eat", "tea", "tan", "ate", "nat", "bat"]
+
+from collections import defaultdict
+
+def group_anagram(words):
+    hasmap = defaultdict(list)
+    for word in words:
+        key = tuple(sorted(word))
+        hasmap[key].append(word)
+    return list(hasmap.values())
+
+print(group_anagram(words))
 
 
+print('=====second max======')
+
+def second_max(nums):
+    first = second = float('-inf')
+    for num in nums:
+        if num > first:
+            second, first = first, num
+        elif first > num > second:
+            second = num
+    return second
 
 
+print(second_max([3, 1, 4, 1, 5, 9]))
 
+print('=======Longest Palindrome Substring========')
+
+# def longest_palindrome(s):
+#     def
 
 
 
