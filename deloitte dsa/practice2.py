@@ -39,7 +39,7 @@ def is_anagram(s1,s2):
         count[ch] = count.get(ch, 0) + 1
 
     for ch in s2:
-        if ch not in s2:
+        if ch not in s1:
             return False
         count[ch] -= 1
         if count[ch] < 0:
@@ -100,7 +100,7 @@ def longest_consecutive(nums):
             longest = max(longest, length)
     return longest
 
-print(longest_consecutive(nums))
+print('longest_consecutive=>>>',longest_consecutive(nums))
 
 def count_ele(arr):
     count = {}
@@ -108,7 +108,7 @@ def count_ele(arr):
         count[i] = count.get(i, 0) + 1
     return count
 
-print(count_ele([1,2,2,3,1,4,5,4,3,5,6]))
+print('count ele===',count_ele([1,2,2,3,1,4,5,4,3,5,6]))
 
 txt = 'Ashutosh pradhan'
 data = {}
@@ -185,3 +185,103 @@ def remove_du(s):
 
 
 print(remove_du('racecar'))
+
+
+def majorityElement(nums):
+    candidate = None
+    count = 0
+
+    for num in nums:
+        if count == 0:
+            candidate = num
+        count += (1 if num == candidate else -1)
+
+    return candidate
+arr = [1,2,3,4,5,2,1,1,2,3,6,6,67,7]
+
+print(majorityElement(arr))
+
+
+from collections import Counter
+
+from collections import Counter
+
+def majority_element(nums):
+    # Phase 1: find candidate
+    candidate = None
+    count = 0
+    for num in nums:
+        if count == 0:
+            candidate = num
+        count += 1 if num == candidate else -1
+
+    # Phase 2: verify candidate
+    if candidate is None:
+        return None
+
+    occ = nums.count(candidate)
+    return candidate if occ > len(nums) // 2 else None
+
+# Example
+arr = [1,2,3,4,5,2,1,1,2,3,6,6,67,7]
+print(majority_element(arr))  # None (no majority)
+
+seen = {}
+for i in arr:
+    seen[i] = seen.get(i, 0) + 1
+print(seen)
+major = []
+data = ''
+for i in seen.values():
+    if i >= len(arr) // 2:
+        major.append(i)
+    else:
+        data = 'no data'
+
+
+def fun(arr):
+    count = 0
+    ele = None
+    for i in arr:
+        if count == 0:
+            ele = i
+        count += 1 if i == ele else -1
+    return ele
+print(fun([1,2,1,2,1]))
+
+
+def non_rep(txt):
+    freq = {}
+    for ch in txt:
+        freq[ch]  = freq.get(ch, 0) + 1
+    for ch in txt:
+        if freq[ch] == 1:
+            return ch
+print(non_rep('Ashutosh pradhan'))
+
+
+def max_rep(txt):
+    freq = {}
+    txt = txt.replace(' ', '')
+    for i in txt:
+        freq[i] = freq.get(i, 0) + 1
+    return freq
+
+print('max_rep===>>>',max_rep('Ashutosh pradhan'))
+
+fruits = ['banana','papaya', 'apple', 'cherry']
+fruits = [1,5,4,2,6,3]
+for i in range(1, len(fruits)):
+    key = fruits[i]
+    j = i - 1
+
+    print(fruits[j], key)
+
+    while j >= 0 and fruits[j] > key:
+        fruits[j + 1] = fruits[j]
+        j -= 1
+    fruits[j+1] = key
+
+print(fruits)
+
+

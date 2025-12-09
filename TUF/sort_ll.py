@@ -1,4 +1,4 @@
-from http.cookiejar import is_HDN
+# from http.cookiejar import is_HDN
 
 print('=========sort linkedlist===========')
 ''' 
@@ -49,6 +49,25 @@ def merge_sort(arr, low, high):
     merge(arr, low, mid, high)
 
 
-if __name__ == '__main__':
-    merge_sort(arr, 0, len(arr) - 1)
-    print(arr)
+# if __name__ == '__main__':
+#     merge_sort(arr, 0, len(arr) - 1)
+#     print(arr)
+'==========================================='
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
