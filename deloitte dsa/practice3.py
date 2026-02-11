@@ -61,19 +61,46 @@ print(two_sum([2,3,5,7],9))
 
 def log_sub(txt):
     left = 0
-    stack = set()
     longest = 0
-
+    data = set()
+    start_index = 0
     for right in range(len(txt)):
-        while txt[right] in stack:
-            stack.remove(txt[left])
+        while txt[right] in data:
+            data.remove(txt[left])
             left += 1
-        stack.add(txt[right])
+        data.add(txt[right])
+        if (right-left+1)>longest:
+            longest = right-left+1
+            start_index = left
         longest = max(longest, right-left+1)
-    return longest
+    return longest, txt[start_index: start_index+longest]
 
-print(log_sub('abcbcab'))
+print(log_sub('abcabcbb'))
 
+'''move 0 into last'''
+
+def move_zero(arr):
+    index = 0
+    for i in range(len(arr)):
+        if arr[i] != 0:
+            arr[index], arr[i] = arr[i], arr[index]
+            index += 1
+    # arr = arr[::-1]
+    return arr
+a = [0,4,7,0,4,2,0,1,7,0,4]
+# print(move_zero(a))
+# print(a)
+
+def move_zero_to_fst(arr):
+    index = len(arr) - 1
+    for i in range(len(arr)-1 , -1, -1):
+        if arr[i] != 0:
+            arr[index], arr[i] = arr[i], arr[index]
+            index -= 1
+
+    return arr
+
+print(move_zero_to_fst(a))
 
 
 
