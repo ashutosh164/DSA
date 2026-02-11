@@ -51,16 +51,38 @@
 #
 # # Show result
 # ranked_df.show()
-def log(func):
-    print('inside log func')
-    def wrapper(*args, **kwargs):
-        print("Calling", func.__name__)
-        return func(*args, **kwargs)
-    return wrapper
-@log
-def func():
-    print('hello ashutosh')
+# def log(func):
+#     print('inside log func')
+#     def wrapper(*args, **kwargs):
+#         print("Calling", func.__name__)
+#         return func(*args, **kwargs)
+#     return wrapper
+# @log
+# def func():
+#     print('hello ashutosh')
+#
+#
+# if __name__ == '__main__':
+#     func()
 
 
-if __name__ == '__main__':
-    func()
+a = {1,2,3}
+b = {3,4,5}
+# a = [1,2]
+
+# print(list(map(lambda x: x*x, range(5))))
+
+
+# a = lambda x: 'even' if x % 2 == 0 else 'odd'
+
+# print(list(map(lambda x,y: x+y, a, b)))
+
+# print(list(filter(None, [0, 1, "", "hi"])))
+
+# m =
+from functools import reduce
+print((reduce(lambda x,y: x if x>y else y, [2,5,1])))
+
+print(list(map(lambda x,y: x if x>y else y, [1,5,2], [0,8,9])))
+
+

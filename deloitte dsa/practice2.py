@@ -270,12 +270,10 @@ def max_rep(txt):
 print('max_rep===>>>',max_rep('Ashutosh pradhan'))
 
 fruits = ['banana','papaya', 'apple', 'cherry']
-fruits = [1,5,4,2,6,3]
+# fruits = [1,5,4,2,6,3]
 for i in range(1, len(fruits)):
     key = fruits[i]
     j = i - 1
-
-    print(fruits[j], key)
 
     while j >= 0 and fruits[j] > key:
         fruits[j + 1] = fruits[j]
@@ -283,5 +281,9 @@ for i in range(1, len(fruits)):
     fruits[j+1] = key
 
 print(fruits)
+
+
+funcs = [lambda x: x+i for i in range(3)]
+print([f(10) for f in funcs])
 
 
