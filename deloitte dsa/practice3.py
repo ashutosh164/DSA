@@ -101,6 +101,39 @@ def move_zero_to_fst(arr):
     return arr
 
 print(move_zero_to_fst(a))
+''' remove duplicate '''
+
+
+
+'''majority element'''
+
+def majority(arr):
+    count = 0
+    ele = None
+
+    for i in arr:
+        if count == 0:
+            ele = i
+        count += 1 if i == ele else -1
+    if arr.count(ele) > len(arr)//2:
+        return ele
+    return None
+print('majority===>>',majority([1,2,3,2,4]))
+
+'''most freq number'''
+
+def most_freq(arr):
+    freq = {}
+    max_count = 0
+    max_ele = None
+    for i in arr:
+        freq[i] = freq.get(i, 0)  + 1
+        if freq[i] > max_count:
+            max_count = freq[i]
+            max_ele = i
+    return max_ele, max_count
+
+print(most_freq([1,2,3,2,4]))
 
 
 
